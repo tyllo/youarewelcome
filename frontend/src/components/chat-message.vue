@@ -68,7 +68,6 @@
     }
 
     & > &_text {
-      margin-bottom: .5rem;
     }
 
     & > &_time {

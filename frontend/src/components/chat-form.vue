@@ -35,6 +35,7 @@
   $main-color: #2881b9;
   $light-color: lighten($main-color, 20);
   $form-button-width: 8rem;
+  $max-width: 400px;
 
   .chat-form {
     position: absolute;
@@ -51,6 +52,9 @@
       height: 1.2rem;
       color: lightgray;
 
+      @media screen and (max-width: $max-width) {
+        display: none;
+      }
     }
 
     & > &_message {
@@ -59,6 +63,9 @@
       font-size: .8rem;
       color: #fff;
       line-height: 1rem;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
 
     & > &_input,
@@ -77,6 +84,10 @@
       color: gray;
       border-right: none;
       padding-left: 2.7rem;
+
+      @media screen and (max-width: $max-width) {
+        padding-left: 0.5rem;
+      }
     }
 
     & > &_button {
