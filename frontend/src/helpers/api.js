@@ -1,5 +1,5 @@
 const ANSWER_URL = '/api/get-answer'
-const SERVER_TIME_LATENCY = 300
+const SERVER_TIME_LATENCY = 600
 
 class ErrorMessage {
   constructor (response) {

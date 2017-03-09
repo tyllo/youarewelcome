@@ -45,17 +45,13 @@
 
   .chat-message {
     padding: .5rem;
+    margin-bottom: 1rem;
     position: relative;
     background-color: $mesage-bg-color;
     border-radius: .5rem;
     box-shadow: $shadow;
     font-size: .9rem;
     line-height: 1.2rem;
-
-    margin-bottom: 1rem;
-    &:last-child {
-      margin-bottom: 0;
-    }
 
     & > &_user {
       margin-bottom: .5rem;

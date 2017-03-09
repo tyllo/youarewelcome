@@ -33,7 +33,7 @@
     }
 
     & > &_messages {
-      overflow: auto;
+      overflow-y: auto;
       padding-bottom: 0;
       height: calc(100% - #{ $form-height });
     }

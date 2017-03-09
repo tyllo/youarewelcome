@@ -1,7 +1,8 @@
 <template lang="pug">
-  .chat-messages
-    transition-group(name="messages" tag="div" ref="messages")
-      ChatMessage.chat-messages_item(
+  .chat-messages(ref="messages")
+    transition-group.chat-messages_inner(
+      name="messages" tag="div")
+      ChatMessage(
         v-for="message in messages",
         :key="message.id",
         :message="message")
@@ -13,8 +14,6 @@
 <script>
   import ChatMessage from '@/components/chat-message'
 
-  const ANIMATION_TIME = 500
-
   export default {
     props: {
       messages: {
@@ -22,30 +21,20 @@
         required: true
       }
     },
-    data: () => ({
-      timerId: null
-    }),
     updated () {
-      this.timerId = setTimeout(() => {
-        this.$refs.messages.$el.scrollIntoView(false)
-      }, ANIMATION_TIME)
-    },
-    beforeDestroy () {
-      clearTimeout(this.timerId)
+      const box = this.$refs.messages
+      box.scrollTop = box.scrollHeight
     },
     components: {
       ChatMessage
     }
-}
+  }
 </script>
 
 <style lang="scss">
   .chat-messages {
     height: 100%;
     position: relative;
-
-    & > &_item {
-    }
 
     & > &_empty {
       position: absolute;
@@ -63,13 +52,13 @@
   .messages {
     &-enter-active,
     &-leave-active {
-      // ANIMATION_TIME
+      // < SERVER_TIME_LATENCY
       transition: all .5s;
     }
     &-enter,
     &-leave-to {
       opacity: 0;
-      transform: translateY(50%);
+      transform: translateY(-50%);
     }
   }
 </style>
