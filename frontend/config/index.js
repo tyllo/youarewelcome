@@ -1,11 +1,13 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
 
+const buildFolder = '../../web'
+
 module.exports = {
   build: {
     env: require('./prod.env'),
-    index: path.resolve(__dirname, '../web/index.html'),
-    assetsRoot: path.resolve(__dirname, '../web'),
+    index: path.resolve(__dirname, buildFolder + '/index.html'),
+    assetsRoot: path.resolve(__dirname, buildFolder),
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     productionSourceMap: true,
@@ -19,7 +21,7 @@ module.exports = {
     // View the bundle analyzer report after build finishes:
     // `npm run build --report`
     // Set to `true` or `false` to always turn it on or off
-    bundleAnalyzerReport: process.env.npm_config_report
+    bundleAnalyzerReport: process.env.npm_config_report,
   },
   dev: {
     env: require('./dev.env'),
