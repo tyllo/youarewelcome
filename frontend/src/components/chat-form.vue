@@ -53,12 +53,14 @@
     & > &_icon-pen {
       margin: 0.55rem;
       position: absolute;
-      left: 1rem;
+      right: 1rem;
       height: 1.2rem;
       color: lightgray;
+      opacity: .6;
 
-      @media screen and (max-width: $max-width) {
+      @media screen and (min-width: $max-width) {
         display: none;
+        opacity: 0;
       }
     }
 
@@ -88,10 +90,10 @@
       width: calc(100% - #{ $form-button-width });
       color: gray;
       border-right: none;
-      padding-left: 2.7rem;
+      transition: .5s;
 
       @media screen and (max-width: $max-width) {
-        padding-left: 0.5rem;
+        width: calc(100% - 3rem);
       }
     }
 
@@ -102,6 +104,11 @@
       color: #fff;
       border-color: $main-color;
       transition: .5s;
+
+      @media screen and (max-width: $max-width) {
+        text-indent: -100rem;
+        width: 3rem;
+      }
 
       &:disabled {
         background-color: $light-color;
