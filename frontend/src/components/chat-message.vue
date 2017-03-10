@@ -64,6 +64,7 @@
     }
 
     & > &_text {
+      word-wrap: break-word;
     }
 
     & > &_time {

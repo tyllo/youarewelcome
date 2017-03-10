@@ -14,7 +14,7 @@
       autofocus)
 
     button.chat-form_button(
-      type="submit", :disabled="!text") Узнать ответ
+      type="submit", :disabled="isDisabledButton") Узнать ответ
 </template>
 
 <script>
@@ -22,9 +22,14 @@
     data: () => ({
       text: ''
     }),
+    computed: {
+      isDisabledButton () {
+        return !this.text.trim()
+      }
+    },
     methods: {
       onSubmit () {
-        this.$emit('submit', this.text)
+        this.$emit('submit', this.text.trim())
         this.text = ''
       }
     }
